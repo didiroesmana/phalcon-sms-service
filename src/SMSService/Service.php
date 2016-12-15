@@ -3,6 +3,7 @@
 namespace Didiroesmana\SMSService;
 
 use Didiroesmana\SMSService\Base\BaseService;
+use \Exception;
 
 class Service extends BaseService
 {
