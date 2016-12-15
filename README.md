@@ -30,16 +30,17 @@ Service Adapter for Multiple SMS Service such as Nexmo , Clickatell.
     ```
 - add Sms service to your DI , 
     ```php
-    $di->setShared('sms', \Didiroesmana\SMSService\Service::class);
+    	$di->setShared('sms', \Didiroesmana\SMSService\Service::class);
     ```
 - Send SMS
     - get sms service from DI
     - and send it
-        ```php
-        // first parameter is sender
-        // second is the recipient number
-        // third is the message
-        dump($this->sms->send('DDGEMES','69696969696969','ANU DD GEMESH'));
+
+		```php
+			// first parameter is sender
+			// second is the recipient number
+			// third is the message
+			dump($this->sms->send('DDGEMES','69696969696969','ANU DD GEMESH'));
         ```
         
 - Providers
