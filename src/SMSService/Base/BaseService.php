@@ -3,8 +3,9 @@
 namespace Didiroesmana\SMSService\Base;
 
 use Phalcon\DiInterface;
+use Phalcon\Di\InjectionAwareInterface;
 
-abstract class BaseService implements InjectionAware
+abstract class BaseService implements InjectionAwareInterface
 {
     /**
      * @var mixed
@@ -16,7 +17,7 @@ abstract class BaseService implements InjectionAware
      */
     public function getDi()
     {
-        return $_di;
+        return $this->_di;
     }
 
     /**

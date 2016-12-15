@@ -18,7 +18,7 @@ class Service extends BaseService
      */
     public function send($from, $to, $message)
     {
-        if (!$_provider) {
+        if (!$this->_provider) {
             $this->_initializeProvider();
         }
 
@@ -46,6 +46,8 @@ class Service extends BaseService
         } else {
             throw new Exception("Provider doesn't exists", 1);
         }
+
+        return $this;
     }
 
 }

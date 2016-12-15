@@ -49,6 +49,6 @@ abstract class BaseProvider implements SmsProviderInterface
         $this->_client = new HttpClient();
     }
 
-    protected function _buildQuery();
+    abstract protected function _buildQuery();
 
 }

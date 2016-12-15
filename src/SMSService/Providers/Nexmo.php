@@ -2,7 +2,9 @@
 
 namespace Didiroesmana\SMSService\Providers;
 
-class Nexmo implements SmsProviderInterface
+use Didiroesmana\SMSService\Base\BaseProvider;
+
+class Nexmo extends BaseProvider
 {
     /**
      * @param $message
@@ -15,9 +17,10 @@ class Nexmo implements SmsProviderInterface
     /**
      * @param $recipient
      */
-    public function setRecipients($recipient)
+    public function setRecipient($recipient)
     {
         $this->_recipient = $recipient;
+        return $this;
     }
 
     /**
@@ -26,6 +29,7 @@ class Nexmo implements SmsProviderInterface
     public function setSender($sender)
     {
         $this->_sender = $sender;
+        return $this;
     }
 
     /**
@@ -34,6 +38,7 @@ class Nexmo implements SmsProviderInterface
     public function setMessage($message)
     {
         $this->_message = $message;
+        return $this;
     }
 
     /**
@@ -43,13 +48,13 @@ class Nexmo implements SmsProviderInterface
     {
         $params = [];
         $params['from'] = $this->_sender;
-        $params['to'] => $this->_recipient;
-        $params['text'] => $this->_message;
+        $params['to'] = $this->_recipient;
+        $params['text'] = $this->_message;
         $params['api_key'] = $this->_config->api_key;
         $params['api_secret'] = $this->_config->api_secret;
 
         try {
-            $response = $_client->request('POST', $this->_config->endpoint, [
+            $response = $this->_client->request('POST', $this->_config->endpoint, [
                 'json' => $params,
             ]);
             if ($body = json_decode($response->getBody())) {
