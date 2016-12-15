@@ -1,0 +1,25 @@
+{
+	"name": "didiroesmana/phalcon-sms-service",
+	"description": "Service for sending SMS",
+	"type": "library",
+	"keywords": [
+		"phalcon",
+		"phalcon service",
+		"phalcon sms gateway"
+	],
+	"support": {
+		"issues": "https://github.com/didiroesmana/phalcon-sms-service/issues"
+	},
+	"minimum-stability": "stable",
+	"homepage": "https://github.com/didiroesmana/phalcon-sms-service",
+  	"license": "MIT",
+  	"require": {
+  		"php": ">=5.4.0",
+  		"guzzlehttp/guzzle": "~5.0"
+  	},
+  	"autoload": {
+  		"psr-4": {
+  			"Didiroesmana\\SMSService\\": "src/SMSService"
+  		}
+  	}
+}
