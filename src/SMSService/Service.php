@@ -39,8 +39,10 @@ class Service extends BaseService
             throw new Exception("No provider is set", 1);
         }
 
-        if (class_exists("Didiroesmana\\SMSService\\Providers\\{$providerName}")) {
-            $this->_provider =
+        $providerClass = "Didiroesmana\\SMSService\\Providers\\{$providerName}";
+
+        if (class_exists($providerClass)) {
+            $this->_provider = new $providerClass($this->_di, $config->{$config->use});
         } else {
             throw new Exception("Provider doesn't exists", 1);
         }
