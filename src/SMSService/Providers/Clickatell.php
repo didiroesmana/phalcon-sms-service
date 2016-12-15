@@ -5,7 +5,7 @@ namespace Didiroesmana\SMSService\Providers;
 use Didiroesmana\SMSService\Base\BaseProvider;
 use \Exception;
 
-class Nexmo extends BaseProvider
+class Clickatell extends BaseProvider
 {
     /**
      * @param $message
@@ -29,7 +29,7 @@ class Nexmo extends BaseProvider
      */
     public function setSender($sender)
     {
-        $this->_sender = $sender;
+        // $this->_sender = $sender;
         return $this;
     }
 
@@ -48,15 +48,16 @@ class Nexmo extends BaseProvider
     protected function _buildQuery()
     {
         $params = [];
-        $params['from'] = $this->_sender;
-        $params['to'] = $this->_recipient;
-        $params['text'] = $this->_message;
-        $params['api_key'] = $this->_config->api_key;
-        $params['api_secret'] = $this->_config->api_secret;
+        $params['content'] = $this->_message;
+        $params['binary'] = false;
+        $params['to'] = [$this->_recipient];
 
         try {
             $response = $this->_client->request('POST', $this->_config->endpoint, [
                 'json' => $params,
+                'headers' => [
+                    'Authorization' => $this->_config->token,
+                ],
             ]);
             if ($body = json_decode($response->getBody())) {
                 return $body;
@@ -66,6 +67,5 @@ class Nexmo extends BaseProvider
         } catch (Exception $e) {
             throw new Exception("Error Processing Request", 1);
         }
-
     }
 }
