@@ -50,7 +50,7 @@ class Clickatell extends BaseProvider
         $params = [];
         $params['content'] = $this->_message;
         $params['binary'] = false;
-        $params['to'] = [$this->_recipient];
+        $params['to'] = array_merge([], ((is_array($this->_recipient)) ? $this->_recipient : [$this->_recipient]));
 
         try {
             $response = $this->_client->request('POST', $this->_config->endpoint, [
