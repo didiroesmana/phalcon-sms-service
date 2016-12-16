@@ -46,7 +46,7 @@ Service Adapter for Multiple SMS Service such as Nexmo , Clickatell.
 - Providers
     - Nexmo
     - Clickatell
-        - to send batch sms , create array of number and put it in second arguments
-            ```php
+        - to send batch sms , create array of number and put it in second arguments.
+		```php
                 dump($this->sms->send('DDGEMES',['+62xxxx','+62xxxxx','+1xxxxxx' ...]));
-            ```
+		```
