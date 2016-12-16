@@ -5,10 +5,10 @@ Service Adapter for Multiple SMS Service such as Nexmo , Clickatell.
 
 - [x] Add Nexmo
 - [x] Add Clickatell
-- [ ] Clickatell batch send
+- [x] Clickatell batch send
+- [x] Changeable SMS Provider
 - [ ] Error Handling
 - [ ] Unit Test
-- [ ] Changeable SMS Provider
 
 
 # How To
@@ -46,3 +46,7 @@ Service Adapter for Multiple SMS Service such as Nexmo , Clickatell.
 - Providers
     - Nexmo
     - Clickatell
+        - to send batch sms , create array of number and put it in second arguments
+            ```php
+                dump($this->sms->send('DDGEMES',['+62xxxx','+62xxxxx','+1xxxxxx' ...]));
+            ```
