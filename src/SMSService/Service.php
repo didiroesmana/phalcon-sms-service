@@ -58,6 +58,7 @@ class Service extends BaseService
     {
         $this->getDi()->get('config')->smsService->use = $provider;
         $this->_initializeProvider();
+        return $this;
     }
 
 }

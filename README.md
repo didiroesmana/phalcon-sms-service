@@ -50,3 +50,7 @@ Service Adapter for Multiple SMS Service such as Nexmo , Clickatell.
 		```php
                 dump($this->sms->send('DDGEMES',['+62xxxx','+62xxxxx','+1xxxxxx' ...]));
 		```
+- Change Provider
+```php
+$this->sms->changeProvider('Clickatell')->send(...);
+```
